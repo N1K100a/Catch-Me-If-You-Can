@@ -1,0 +1,526 @@
+*{
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    /* --font: 'Supermercado One', cursive; */
+    /* --font: 'Montserrat', sans-serif;
+     */
+     --font: Geofont;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background:#365d81;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 500px;
+    height: 540px;
+    padding: 10px;
+    background-color: #2C3333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.main-scene {
+    position: relative;
+    width: 100%;
+    height: 0px;
+    overflow:hidden;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.2s ease-out , transform 0.2s ease-out;
+    
+}
+
+.first-load {
+    width: 100%;
+    height: 0px;
+    overflow:hidden;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.2s ease-out , transform 0.2s ease-out;
+} 
+
+.leader-board-con {
+    width: 245px;
+    height: 410px;
+    background: #2666CF;
+    position: absolute;
+    top: 60px;
+    padding: 0 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transform: translateX(-255px);
+    transition: transform 0.5s;
+}
+
+
+.leader-board-con::-webkit-scrollbar {
+    width: 5px;
+}
+
+.leader-board-con::-webkit-scrollbar-track {
+    background-color: #2f3640;
+}
+
+.leader-board-con::-webkit-scrollbar-thumb {
+    background-color: #353b48;
+}
+
+.LB-title-con {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    font-family: var(--font);
+    font-size: 11px;
+    line-height: 30px;
+    position: sticky;
+    top: 0px;
+    background-color: #2666CF;
+}
+
+.LB-title-name {
+    width: 120px;
+}
+
+.LB-title-level, .LB-title-stars {
+    width: 50px;
+}
+
+.board-inner {
+    margin-bottom: 5px;
+    height: 25px;
+    width: 100%;
+    background-color: blanchedalmond;
+    display: flex;
+    font-family: var(--font);
+    font-size: 10px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.inner-name {
+    width: 120px;
+}
+
+.star-numbers, .max-levels {
+    width: 50px;
+}
+
+.active-display{
+    transform: scale(1);
+    opacity: 1;
+    height: 410px;
+}
+
+.first-load img {
+    width: 240px;
+    margin: 50px 120px;
+}
+.first-load p {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    padding: 25px;
+    text-align: justify;
+    font-size: 18px;
+    font-family: var(--font);
+
+}
+.player-name {
+    margin: 0 120px;
+    width: 50%;
+    height: 40px;
+    padding: 5px 20px;
+    outline: none !important;
+    font-size: 13.5px;
+    text-align:center;
+    border:1px solid black;
+    font-family: var(--font);
+    animation-duration: 1s;
+    animation-timing-function:ease-in-out;
+}
+
+.home-btn {
+    animation-duration: 1s;
+    animation-timing-function:ease-in-out;
+}
+
+
+@keyframes NameAnimate {
+    0% { transform: scale(1,1)
+    }
+    10% { transform: scale(1.1,0.9)}
+    30% { transform: scale(0.9,1.1);
+        background-color: #ff3838;
+    }
+    50% { transform: scale(1.05,.95)}
+    57%{ transform: scale(1,1)}
+    100% { transform: scaleX(1)}
+}
+
+.start-button {
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid red;
+    margin: 20px 180px 0;
+    border-radius: 5px;
+    font-family: var(--font);
+    outline: none !important;
+}
+
+.game-name {
+    height: 50px;
+    width: 300px;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+    font-family: Montserrat, sans-serif;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-shadow: -1px 1px #74b9ff, 1px -1px red;
+}
+.game-display {
+    height: 360px;
+    width: 480px;
+    background: url(./background.jpg);
+    background-size: cover;
+
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 1);
+    position: relative;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.game-header {
+    height: 40px;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 10;
+    border-radius: 10px;
+}
+.game-footer {
+    height: 50px;
+    width: 480px;
+    background-color: #2666CF;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.click-numbers {
+    display: flex;
+}
+.click-numbers img {
+    margin: 5px;
+    height: 30px;
+}
+
+.game-footer button {
+    height: 40px;
+    margin: 5px;
+    border-radius: 7.5px;
+    width: 60px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.time-con , .game-level, .click-numbers{
+    height: 40px;
+    width: 100px;
+    font-size: 30px;
+    font-family: var(--font);
+    line-height: 40px;
+}
+
+.game-level {
+    width: 180px;
+    text-align: center;
+}
+.click-numbers {
+    display: flex;
+    justify-content: center;
+}
+
+.moving-ball {
+    height: 80px;
+    width: 80px;
+    background: url(./planet.png);
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 5px black, inset 10px 0 20px #000000, inset -10px 0 20px rgba(255, 255, 255, 0.4);
+    transition-timing-function: linear;
+    /* transition-duration: 0.3s ; */
+}
+
+.game-end-con {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background-color: #2f3640;
+    top: 130px;
+    left: 90px;
+    border: 5px solid #353b48;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+    pointer-events: all !important;
+
+}
+.homeExit {
+    position: absolute;
+    letter-spacing: 1.2px;
+    text-align: justify;
+    width: 300px;
+    height: 150px;
+    background-color: #2f3640;
+    top: 130px;
+    left: 90px;
+    border: 5px solid #353b48;
+    border-radius: 10px;
+    z-index: 1101;
+    pointer-events: all !important;
+    display: none;
+}
+.homeExit h3 {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    font-family: var(--font);
+}
+
+.homeExit > div {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: var(--font);
+}
+
+.Yes-btn, .No-btn {
+    height: 40px;
+    width: 60px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    color: #dcdde1;
+    text-shadow: 0 0 2px black;
+    box-shadow: 0 0 3px black;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+
+}
+.No-btn {
+    background: #365d81;
+}
+
+.Yes-btn {
+    background-color: #ff3838;
+}
+
+.Yes-btn:hover {
+    background: #ff1d1d;
+}
+ 
+.No-btn:hover {
+    background: #487eb0;
+}
+
+.game-end-title {
+    margin: 10px 0;
+    text-align: center;
+    font-family: var(--font);
+    color: white;
+    letter-spacing: 2px;
+    font-size: 13px;
+    line-height: 27px;
+    height: 27px;
+}
+
+.star-con {
+    height: 40px;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.star-con i {
+    font-size: 35px;
+    line-height: 40px;
+    margin: 0 5px;
+    color: #dcdde1;
+    text-shadow: 0 0 5px black;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transform: scale(0);
+    animation-name: starAnimation;
+
+}
+
+.star-con i:nth-child(2){
+    animation-delay: 0.5s;
+}
+
+.star-con i:nth-child(3){
+    animation-delay: 1s;
+}
+
+
+@keyframes starAnimation {
+    0%{transform: scale(0)}
+    80%{transform: scale(1.1)}
+    100%{transform: scale(1)}
+}
+
+.game-end-button-con {
+    height: 40px;
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.game-end-button-con button {
+    height: 40px;
+    width: 60px;
+    background-color: #365d81;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #dcdde1;
+    text-shadow: 0 0 2px black;
+    box-shadow: 0 0 3px black;
+    transition: background-color 0.1s ease;
+    animation-duration: 0.5s;
+    opacity: 0.5;
+    animation-fill-mode: forwards;
+    animation-name: buttonAnimation;
+    pointer-events: none;
+    animation-delay: 1.5s;
+}
+
+.game-end-button-con button:hover {
+    background-color: #487eb0;
+}
+
+@keyframes buttonAnimation {
+    0%{opacity: 0.5;}
+
+    100%{
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.disableclass {
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+}
+
+.guide-con {
+    position: absolute;
+    height: 410px;
+    width: 300px;
+    background-color: #2666CF;
+    left: 100px;
+    top: 60px;
+    font-family: Geofont;
+    display: none;
+}
+
+@font-face {
+    src: url(./fonts/bpg_extrasquare_mtavruli_2009.ttf);
+    font-family: Geofont;
+}
+
+.guide-con > h4 {
+    text-align:justify;
+    width: 260px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: 1.5px;
+    margin: 0 20px;
+    border-bottom: 2px dashed black;
+}
+.guide-con > h3 {
+    text-align: center;
+    margin: 12px 0;
+    letter-spacing: 5px;
+}
+
+.author-container {
+    margin-top: 40px;
+}
+
+.author-container > h4 {
+    padding: 0 20px;
+    line-height: 20px;
+    text-align: center;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #353b48;
+
+}
+.author-container > h4  i {
+    line-height: 20px;
+    font-size: 18px;
+}
+
+.author-container > h4 > a {
+    text-decoration: none;
+    color: black;
+
+}
+.author-container > h4 > a:hover {
+    color: #ff1d1d;
+}
+
+.author-container > h4:last-child {
+    justify-content: center;
+}
+
+.device-alert {
+    max-width: 500px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2666CF;
+}
+
+.device-alert h3 {
+    padding: 20px;
+    margin: 0;
+    margin-top: 20vh;
+    text-align: center;
+    letter-spacing: 6px;
+    font-family: geofont;
+}
